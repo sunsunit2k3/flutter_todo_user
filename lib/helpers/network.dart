@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class ApiProvinder {
   final String _baseUrl =
-      'https://crudcrud.com/api/0dd1361415d242be878968878426b2e3';
+      'https://crudcrud.com/api/143df0b64a594940bbeeb0f1504a6cab';
   get(String url) async {
     try {
       final res = await http.get(Uri.parse(_baseUrl + url));

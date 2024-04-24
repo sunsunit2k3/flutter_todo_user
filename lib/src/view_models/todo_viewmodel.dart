@@ -12,6 +12,10 @@ class ToDoViewModel extends ChangeNotifier {
   final NavigationService _navigationService;
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
+  TextEditingController majorController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   List<UserModel> users = [];
 
   ToDoViewModel(this._navigationService) {
@@ -19,12 +23,22 @@ class ToDoViewModel extends ChangeNotifier {
   }
 
   navigateToCreate() {
+    nameController.clear();
+    ageController.clear();
+    majorController.clear();
+    addressController.clear();
+    phoneController.clear();
+    emailController.clear();
     _navigationService.navigate(const ToDoCreate());
   }
 
-  navigateToEdit(UserModel user) {
+  navigateToInfor(UserModel user) {
     nameController.text = user.name.toString();
     ageController.text = user.age.toString();
+    majorController.text = user.major.toString();
+    addressController.text = user.address.toString();
+    phoneController.text = user.phone.toString();
+    emailController.text = user.email.toString();
     _navigationService.navigate(ToDoEdit(tododata: user));
   }
 
@@ -36,8 +50,6 @@ class ToDoViewModel extends ChangeNotifier {
       _navigationService.goback();
       notifyListeners();
     } catch (e) {
-      // Handle error
-      // print("Error fetching users: $e");
       _navigationService.goback();
     }
   }
@@ -47,6 +59,10 @@ class ToDoViewModel extends ChangeNotifier {
     var resData = await ApiProvinder().post("/todo-app", {
       "name": nameController.text,
       "age": ageController.text,
+      "major": majorController.text,
+      "address": addressController.text,
+      "phone": phoneController.text,
+      "email": emailController.text,
     });
     if (resData) {
       getAllUsers();
@@ -54,6 +70,10 @@ class ToDoViewModel extends ChangeNotifier {
       _navigationService.navigate(const ToDoList());
       nameController.clear();
       ageController.clear();
+      majorController.clear();
+      addressController.clear();
+      phoneController.clear();
+      emailController.clear();
     }
   }
 
@@ -62,6 +82,10 @@ class ToDoViewModel extends ChangeNotifier {
     var resData = await ApiProvinder().put("/todo-app/$id", {
       "name": nameController.text,
       "age": ageController.text,
+      "major": majorController.text,
+      "address": addressController.text,
+      "phone": phoneController.text,
+      "email": emailController.text,
     });
     if (resData) {
       getAllUsers();
@@ -69,6 +93,10 @@ class ToDoViewModel extends ChangeNotifier {
       _navigationService.navigate(const ToDoList());
       nameController.clear();
       ageController.clear();
+      majorController.clear();
+      addressController.clear();
+      phoneController.clear();
+      emailController.clear();
     }
   }
 

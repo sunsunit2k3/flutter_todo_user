@@ -15,7 +15,7 @@ class _ToDoCreateState extends State<ToDoCreate> {
   Widget build(BuildContext context) {
     final todocontroller = Provider.of<ToDoViewModel>(context);
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.blue.shade500,
       appBar: AppBar(
         title: const Text('Create To Do'),
       ),
@@ -43,7 +43,7 @@ class _ToDoCreateState extends State<ToDoCreate> {
                     }
                     return null;
                   },
-                  style: const TextStyle(color: Colors.red),
+                  style: const TextStyle(color: Colors.black),
                   decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: "Enter Name",
@@ -68,10 +68,110 @@ class _ToDoCreateState extends State<ToDoCreate> {
                     }
                     return null;
                   },
-                  style: const TextStyle(color: Colors.red),
+                  style: const TextStyle(color: Colors.black),
                   decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: "Enter Age",
+                      hintStyle: TextStyle(color: Colors.grey)),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                width: 400,
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextFormField(
+                  controller: todocontroller.majorController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Required field';
+                    }
+                    return null;
+                  },
+                  style: const TextStyle(color: Colors.black),
+                  decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Enter Major",
+                      hintStyle: TextStyle(color: Colors.grey)),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                width: 400,
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextFormField(
+                  controller: todocontroller.emailController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Required field';
+                    }
+                    return null;
+                  },
+                  style: const TextStyle(color: Colors.black),
+                  decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Enter Email",
+                      hintStyle: TextStyle(color: Colors.grey)),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                width: 400,
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextFormField(
+                  controller: todocontroller.phoneController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Required field';
+                    }
+                    return null;
+                  },
+                  style: const TextStyle(color: Colors.black),
+                  decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Enter Phone",
+                      hintStyle: TextStyle(color: Colors.grey)),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                width: 400,
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextFormField(
+                  controller: todocontroller.addressController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Required field';
+                    }
+                    return null;
+                  },
+                  style: const TextStyle(color: Colors.black),
+                  decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Enter Address",
                       hintStyle: TextStyle(color: Colors.grey)),
                 ),
               ),
@@ -96,7 +196,7 @@ class _ToDoCreateState extends State<ToDoCreate> {
                     child: Text(
                       "Save",
                       style: TextStyle(
-                          color: Colors.red, fontWeight: FontWeight.bold),
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
